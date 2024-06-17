@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
-const ProfileScreen = () => {
+const Profile = () => {
   const [user, setUser] = useState(null); // State to store user data
 
   useEffect(() => {
@@ -11,7 +11,8 @@ const ProfileScreen = () => {
     const fetchUserData = async () => {
       try {
         const userEmail = await AsyncStorage.getItem('userEmail');
-        const response = await axios.get(`http://192.168.0.108:5001/api/user/${userEmail}`);
+        console.log(userEmail);
+        const response = await axios.get(`http://192.168.0.108:5001/api/user/${encodeURIComponent(userEmail)}`);
         setUser(response.data); // Assuming response.data contains user details
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -106,4 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default Profile;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Dimensions, ScrollView, TouchableOpacity, Animated } from "react-native";
 import { LineChart } from "react-native-chart-kit";
+import { useNavigate } from 'react-router-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
@@ -27,10 +28,10 @@ function Home() {
     return calories;
   };
 
-  const navigation = useNavigation();
+  const navigate = useNavigate(); // Use useNavigation hook
 
   const navigateToProfile = () => {
-    navigation.navigate('ProfileScreen'); // Navigate to ProfileScreen
+    navigate('/profile'); // Navigate to ProfileScreen
   };
 
   // Write user data to the server

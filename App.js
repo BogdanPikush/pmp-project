@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Register from './pages/Register.js';
 import Login from './pages/Login.js';
 import Home from './pages/Home.js';
+import Profile from './pages/Profile.js'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route exact path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </View>
     </NativeRouter>
